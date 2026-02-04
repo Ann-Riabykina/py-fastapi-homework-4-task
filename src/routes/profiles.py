@@ -1,3 +1,5 @@
+import os
+
 from fastapi import APIRouter, Depends, HTTPException, Request, status
 from fastapi.exceptions import RequestValidationError
 from pydantic import ValidationError
@@ -113,7 +115,11 @@ async def create_user_profile(
             detail="User already has a profile.",
         )
 
-    avatar_key = f"avatars/{user_id}_avatar.jpg"
+    filename = payload.avatar.filename
+    _, ext = os.path.splitext(filename)
+    ext = ext.lower()
+
+    avatar_key = f"avatars/{user_id}_avatar.{ext}"
     avatar_bytes = await payload.avatar.read()
 
     try:
