@@ -13,8 +13,8 @@ class UserRegistrationRequestSchema(BaseModel):
 
     @field_validator("email")
     @classmethod
-    def normalize_email(cls, value: EmailStr) -> EmailStr:
-        return EmailStr(str(value).lower())
+    def normalize_email(cls, value: EmailStr) -> str:
+        return str(value).lower()
 
     @field_validator("password")
     @classmethod
@@ -36,8 +36,8 @@ class UserActivationRequestSchema(BaseModel):
 
     @field_validator("email")
     @classmethod
-    def normalize_email(cls, value: EmailStr) -> EmailStr:
-        return EmailStr(str(value).lower())
+    def normalize_email(cls, value: EmailStr) -> str:
+        return str(value).lower()
 
 
 class PasswordResetRequestSchema(BaseModel):
@@ -45,8 +45,8 @@ class PasswordResetRequestSchema(BaseModel):
 
     @field_validator("email")
     @classmethod
-    def normalize_email(cls, value: EmailStr) -> EmailStr:
-        return EmailStr(str(value).lower())
+    def normalize_email(cls, value: EmailStr) -> str:
+        return str(value).lower()
 
 
 class PasswordResetCompleteRequestSchema(BaseModel):
@@ -56,8 +56,8 @@ class PasswordResetCompleteRequestSchema(BaseModel):
 
     @field_validator("email")
     @classmethod
-    def normalize_email(cls, value: EmailStr) -> EmailStr:
-        return EmailStr(str(value).lower())
+    def normalize_email(cls, value: EmailStr) -> str:
+        return str(value).lower()
 
     @field_validator("password")
     @classmethod
@@ -72,8 +72,8 @@ class UserLoginRequestSchema(BaseModel):
 
     @field_validator("email")
     @classmethod
-    def normalize_email(cls, value: EmailStr) -> EmailStr:
-        return EmailStr(str(value).lower())
+    def normalize_email(cls, value: EmailStr) -> str:
+        return str(value).lower()
 
 
 class UserLoginResponseSchema(BaseModel):
