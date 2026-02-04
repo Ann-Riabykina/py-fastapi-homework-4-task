@@ -119,7 +119,7 @@ async def create_user_profile(
     _, ext = os.path.splitext(filename)
     ext = ext.lower()
 
-    avatar_key = f"avatars/{user_id}_avatar.{ext}"
+    avatar_key = f"avatars/{user_id}_avatar{ext}"
     avatar_bytes = await payload.avatar.read()
 
     try:
